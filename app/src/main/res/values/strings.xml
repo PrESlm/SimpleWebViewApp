@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SimpleWebViewApp</string>
     <string name="action_settings">Settings</string>
+    <string name="buttonGoToSite">Go To Website</string>
+    <string name="enterURL">Enter a website URL</string>
+    <string name="title_activity_web_view_pagge">webViewPagge</string>
 </resources>

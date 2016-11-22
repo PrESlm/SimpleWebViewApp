@@ -9,14 +9,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="preslm.simplewebviewapp.activity_MainMenu"
-    tools:showIn="@layout/base_layout">
+    tools:context="preslm.simplewebviewapp.activity_MainMenu">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cool Button"
-        android:id="@+id/button"
+        android:text="@string/buttonGoToSite"
+        android:id="@+id/goToWebsite"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextURL"
+        android:layout_above="@+id/goToWebsite"
+        android:layout_centerHorizontal="true"
+        android:editable="true"
+        android:textSize="16sp"
+        android:text="@string/enterURL"
+        android:textAlignment="center"
+        android:inputType="textUri" />
 </RelativeLayout>
