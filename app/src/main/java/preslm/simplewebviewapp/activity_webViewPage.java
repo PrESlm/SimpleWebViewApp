@@ -11,24 +11,21 @@ import android.webkit.WebViewClient;
 
 public class activity_webViewPage extends AppCompatActivity {
 
-    private WebView webView;
 
-
-    Activity activity ;
-    private ProgressDialog progDailog;
+    private ProgressDialog progressDialog;
 
     @SuppressLint("NewApi")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_webview);
+        Activity activity = this;
 
-        activity = this;
+        progressDialog = ProgressDialog.show(activity, "Loading", "Please wait...", true);
+        progressDialog.setCancelable(false);
 
-        progDailog = ProgressDialog.show(activity, "Loading", "Please wait...", true);
-        progDailog.setCancelable(false);
-        webView = (WebView) findViewById(R.id.webViewWindow);
-
+        WebView webView = (WebView) findViewById(R.id.webViewWindow);
+        assert webView != null; //suppress warnings
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
@@ -36,15 +33,14 @@ public class activity_webViewPage extends AppCompatActivity {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                progDailog.show();
+                progressDialog.show();
                 view.loadUrl(url);
-
                 return true;
             }
 
             @Override
             public void onPageFinished(WebView view, final String url) {
-                progDailog.dismiss();
+                progressDialog.dismiss();
             }
         });
 
