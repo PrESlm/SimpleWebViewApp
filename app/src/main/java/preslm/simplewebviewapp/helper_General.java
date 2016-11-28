@@ -19,12 +19,12 @@ public class helper_General extends AppCompatActivity {
             //add these. webView won't load without "http://www." and ".com"
             if (!URL_string.toLowerCase().contains(".com")) {
                 URL_string = URL_string + ".com";
-                if (!URL_string.toLowerCase().contains("http://")) {
-                    if (!URL_string.toLowerCase().contains("www.")) {
-                        URL_string = "www." + URL_string;
-                    }
-                    URL_string = "http://" + URL_string;
-                }
+            }
+            if (!URL_string.toLowerCase().contains("www.")) {
+                URL_string = "www." + URL_string;
+            }
+            if (!URL_string.toLowerCase().contains("http://")) {
+                URL_string = "http://" + URL_string;
             }
         }
         websiteURL = URL_string;
