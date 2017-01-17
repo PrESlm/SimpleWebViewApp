@@ -21,6 +21,7 @@ public class activity_MainMenu extends AppCompatActivity {
         goToWebsite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                assert urlToStore != null;
                 helper_General.storeURL(urlToStore.getText().toString());
                 Intent intent = new Intent(activity_MainMenu.this, activity_webViewPage.class);
                 startActivity(intent);

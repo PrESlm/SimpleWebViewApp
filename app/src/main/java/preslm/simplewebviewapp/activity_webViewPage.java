@@ -11,7 +11,6 @@ import android.webkit.WebViewClient;
 
 public class activity_webViewPage extends AppCompatActivity {
 
-
     private ProgressDialog progressDialog;
 
     @SuppressLint("NewApi")
@@ -20,7 +19,6 @@ public class activity_webViewPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_webview);
         Activity activity = this;
-
         progressDialog = ProgressDialog.show(activity, "Loading", "Please wait...", true);
         progressDialog.setCancelable(false);
 
@@ -29,23 +27,22 @@ public class activity_webViewPage extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
-        webView.setWebViewClient(new WebViewClient() {
+        webView.setWebViewClient(
+            new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    progressDialog.show();
+                    view.loadUrl(url);
+                    return true;
+                }
 
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                progressDialog.show();
-                view.loadUrl(url);
-                return true;
+                @Override
+                public void onPageFinished(WebView view, final String url) {
+                    progressDialog.dismiss();
+                }
             }
-
-            @Override
-            public void onPageFinished(WebView view, final String url) {
-                progressDialog.dismiss();
-            }
-        });
-
+        );
         webView.loadUrl(helper_General.returnURL());
-
     }
 
     @Override
@@ -60,13 +57,4 @@ public class activity_webViewPage extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
-
-
-
-
 }
-
-
-
-

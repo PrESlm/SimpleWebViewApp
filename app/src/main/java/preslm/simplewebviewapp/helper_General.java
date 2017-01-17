@@ -3,7 +3,7 @@ package preslm.simplewebviewapp;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-/**Helper Class. General Helpers or Helper's Helpers go here.**/
+
 public class helper_General extends AppCompatActivity {
 
     public static String websiteURL = "";
@@ -16,7 +16,7 @@ public class helper_General extends AppCompatActivity {
             URL_string = "http://www.pricee.stu.cofc.edu/";
         }
         else {
-            //add these. webView won't load without "http://www." and ".com"
+            //webView won't load without "http://www." and ".com"
             if (!URL_string.toLowerCase().contains(".com")) {
                 URL_string = URL_string + ".com";
             }
