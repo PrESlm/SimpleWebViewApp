@@ -13,7 +13,7 @@ public class helper_General extends AppCompatActivity {
             URL_string = "file:///storage/emulated/0/websiteTest/index.html";
         }
         else if (URL_string.toLowerCase().contains("my website")){
-            URL_string = "http://www.pricee.stu.cofc.edu/";
+            URL_string = "http://www.preslm.net";
         }
         else {
             //webView won't load without "http://www." and ".com"
